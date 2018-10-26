@@ -2,12 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 enum Action
-{
-  run,
-  runLeft,
-  jump,
-  wait
-}
+{ run, runLeft, jump }
 
 class Model
 {
@@ -69,7 +64,6 @@ class Model
   	   double best = copy.evaluateAction(Action.run, depth + 1);
        best = Math.max(best, copy.evaluateAction(Action.jump, depth + 1));
   	   best = Math.max(best, copy.evaluateAction(Action.runLeft, depth + 1));
-       best = Math.max(best, copy.evaluateAction(Action.wait, depth + 1));
   	   return best;
   	}
   }

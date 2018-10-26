@@ -145,16 +145,12 @@ class Controller implements ActionListener, MouseListener, KeyListener
     //System.out.println("runLeft "+score_runLeft);
     double score_jump = model.evaluateAction(Action.jump, 0);
     //System.out.println("jump "+score_jump);
-    double score_wait = model.evaluateAction(Action.wait, 0);
-    //System.out.println("wait "+score_wait);
 
-    if(score_run >= score_runLeft && score_run > score_jump && score_run >= score_wait)
+    if(score_run >= score_runLeft && score_run > score_jump)
       model.doAction(Action.run);
-    else if(score_jump >= score_runLeft && score_jump >= score_wait)
+    else if(score_jump >= score_runLeft)
       model.doAction(Action.jump);
-    else if(score_runLeft >= score_wait)
-      model.doAction(Action.runLeft);
     else
-      model.doAction(Action.wait);
+      model.doAction(Action.runLeft);
   }
 }

@@ -3,6 +3,7 @@ import java.awt.Graphics;
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 
 class View extends JPanel
@@ -48,5 +49,12 @@ class View extends JPanel
       Sprite s = model.sprites.get(i);
       s.drawMe(s.x, s.y, s.w, s.h, g, model.scrollPos);
     }
+
+		if(model.scrollPos > 4200 && model.mario.myCoins == 25)
+		{
+			g.setColor(new Color(0, 0, 0));
+	    g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+	    g.drawString("you did it!", 100, 100);
+		}
   }
 }

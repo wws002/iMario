@@ -4,8 +4,7 @@ import java.util.Iterator;
 enum Action
 {
   run,
-  jump,
-  wait
+  jump
 }
 
 class Model
@@ -48,7 +47,7 @@ class Model
       s.update();
     }
 	}
-  
+
   double evaluateAction(Action action, int depth)
   {
   	// Evaluate the state

@@ -48,15 +48,7 @@ class Model
       s.update();
     }
 	}
-
-  //double evaluateAction(Action action, int depth)
-  //{
-  //  Model copy = new Model(this);
-  //  copy.doAction(action);
-  //  copy.update();
-  //  return copy.mario.x + 5000 * copy.mario.myCoins - copy.mario.jc;
-  //}
-
+  
   double evaluateAction(Action action, int depth)
   {
   	// Evaluate the state

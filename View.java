@@ -17,7 +17,6 @@ class View extends JPanel
     model = m;
     controller = c;
     controller.setView(this);
-    //backgroundPos += model.scrollPos;
 
     try
     {
@@ -50,6 +49,7 @@ class View extends JPanel
       s.drawMe(s.x, s.y, s.w, s.h, g, model.scrollPos);
     }
 
+		//congradulate the user if they've won
 		if(model.scrollPos > 4200 && model.mario.myCoins == 25)
 		{
 			g.setColor(new Color(0, 0, 0));

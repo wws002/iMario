@@ -12,7 +12,7 @@ class Model
 {
   int scrollPos;
   int backgroundPos = -200;
-  int d = 30, k = 7;
+  int d = 38, k = 7;
   Mario mario;
   ArrayList<Sprite> sprites;
 
@@ -75,16 +75,19 @@ class Model
   	{
   	   double best = copy.evaluateAction(Action.run, depth + 1);
   	   best = Math.max(best, copy.evaluateAction(Action.jump, depth + 1));
-       best = Math.max(best, copy.evaluateAction(Action.wait, depth + 1));
+       //best = Math.max(best, copy.evaluateAction(Action.wait, depth + 1));
   	   return best;
   	}
   }
 
   void doAction(Action a)
   {
-    mario.notePrevious();
-    mario.runningLeft = false;
-    mario.runningRight = false;
+    if(a == Action.run || a == Action.jump)
+    {
+      mario.notePrevious();
+      mario.runningLeft = false;
+      mario.runningRight = false;
+    }
 
     if(a == Action.run)
     {

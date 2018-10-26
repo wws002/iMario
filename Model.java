@@ -13,7 +13,7 @@ class Model
 {
   int scrollPos;
   int backgroundPos = -200;
-  int d = 18, k = 4;
+  int d = 30, k = 8;
   Mario mario;
   ArrayList<Sprite> sprites;
 

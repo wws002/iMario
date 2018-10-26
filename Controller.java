@@ -140,13 +140,13 @@ class Controller implements ActionListener, MouseListener, KeyListener
   void aiUpdate()
   {
     double score_run = model.evaluateAction(Action.run, 0);
-    System.out.println("run "+score_run);
+    //System.out.println("run "+score_run);
     double score_runLeft = model.evaluateAction(Action.runLeft, 0);
-    System.out.println("runLeft "+score_runLeft);
+    //System.out.println("runLeft "+score_runLeft);
     double score_jump = model.evaluateAction(Action.jump, 0);
-    System.out.println("jump "+score_jump);
+    //System.out.println("jump "+score_jump);
     double score_wait = model.evaluateAction(Action.wait, 0);
-    System.out.println("wait "+score_wait);
+    //System.out.println("wait "+score_wait);
 
     if(score_run >= score_runLeft && score_run > score_jump && score_run >= score_wait)
       model.doAction(Action.run);

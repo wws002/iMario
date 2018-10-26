@@ -5,14 +5,15 @@ enum Action
 {
   run,
   runLeft,
-  jump
+  jump,
+  wait
 }
 
 class Model
 {
   int scrollPos;
   int backgroundPos = -200;
-  int d = 20, k = 5;
+  int d = 18, k = 4;
   Mario mario;
   ArrayList<Sprite> sprites;
 
@@ -53,7 +54,7 @@ class Model
   {
   	// Evaluate the state
   	if(depth >= d)
-  		return 2*mario.x + 5000 * mario.myCoins - mario.jc;
+  		return mario.x + 5000 * mario.myCoins - mario.jc;
 
   	// Simulate the action
   	Model copy = new Model(this); // uses the copy constructor
@@ -68,6 +69,7 @@ class Model
   	   double best = copy.evaluateAction(Action.run, depth + 1);
        best = Math.max(best, copy.evaluateAction(Action.jump, depth + 1));
   	   best = Math.max(best, copy.evaluateAction(Action.runLeft, depth + 1));
+       best = Math.max(best, copy.evaluateAction(Action.wait, depth + 1));
   	   return best;
   	}
   }

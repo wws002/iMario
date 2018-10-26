@@ -24,8 +24,8 @@ class Model
   {
     scrollPos = otherModel.scrollPos;
     backgroundPos = otherModel.backgroundPos;
-    mario = new Mario(otherModel.mario, this);
     d = otherModel.d; k = otherModel.k;
+    mario = new Mario(otherModel.mario, this);
 
     this.sprites = new ArrayList<Sprite>();
     sprites.add(mario);

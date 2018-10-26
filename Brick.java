@@ -9,7 +9,7 @@ public class Brick extends Sprite
 
   Brick(int _x, int _y, int _w, int _h, Model m)
   {
-    super(_x, _y, _w, _h, "Brick", m, 0, 0);
+    super(_x, _y, _w, _h, "Brick", m, 0, 0);//vvel and hvel are always 0
 
     try
     {
@@ -25,7 +25,6 @@ public class Brick extends Sprite
   Brick(Json ob, Model m)
   {
     super((int)ob.getLong("x"), (int)ob.getLong("y"), (int)ob.getLong("w"), (int)ob.getLong("h"), "Brick", m, 0, 0);
-    type = (String)ob.getString("type");
 
     try
     {
@@ -41,7 +40,6 @@ public class Brick extends Sprite
   Brick(Brick b, Model m)
   {
     super(b.x, b.y, b.w, b.h, "Brick", m, 0, 0);
-
   }
 
   Json marshall()

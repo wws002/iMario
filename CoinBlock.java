@@ -12,7 +12,7 @@ public class CoinBlock extends Sprite
 
   CoinBlock(int _x, int _y, int _w, int _h, Model m)
   {
-    super(_x, _y, _w, _h, "CoinBlock", m, 0, 0);
+    super(_x, _y, _w, _h, "CoinBlock", m, 0, 0);//vvel and hvvel are always 0
 
     try
     {
@@ -29,7 +29,6 @@ public class CoinBlock extends Sprite
   CoinBlock(Json ob, Model m)
   {
     super((int)ob.getLong("x"), (int)ob.getLong("y"), (int)ob.getLong("w"), (int)ob.getLong("h"), (String)ob.getString("type"), m, 0, 0);
-    type = (String)ob.getString("type");
 
     try
     {
@@ -89,7 +88,7 @@ public class CoinBlock extends Sprite
         else
           hvelocity = -n%15.0;
 
-        Sprite s = new Coin(hvelocity, vvelocity, x, y - 40, model);
+        Sprite s = new Coin(vvelocity, hvelocity, x, y - 40, model);
         model.sprites.add(s);
         coinCount--;
       }

@@ -41,13 +41,13 @@ class Controller implements ActionListener, MouseListener, KeyListener
 
 	public void mouseReleased(MouseEvent e)
 	{
-    if(keyC && !keyD)
+    if(keyC && !keyD)//make a coin block
     {
       Sprite s = new CoinBlock(mouseDownX + model.scrollPos, mouseDownY, 89, 83, model);
       model.sprites.add(s);
     }
 
-    else if(keyD)
+    else if(keyD)//delete a sprite
     {
       for(int i = 0; i < model.sprites.size(); i++)
       {
@@ -58,7 +58,7 @@ class Controller implements ActionListener, MouseListener, KeyListener
       }
     }
 
-    else
+    else//make a brick
     {
       int x1 = mouseDownX;
       int x2 = e.getX();

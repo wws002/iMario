@@ -7,9 +7,9 @@ public class Coin extends Sprite
 {
   Image coin;
 
-  Coin(double _hvel, double _vvel, int _x, int _y, Model m)
+  Coin(double _vvel, double _hvel, int _x, int _y, Model m)
   {
-    super(_x, _y, 0, 0, "Coin", m, _vvel, _hvel);
+    super(_x, _y, 0, 0, "Coin", m, _vvel, _hvel);//coin does not have width or height
 
     try
     {

@@ -50,7 +50,7 @@ class View extends JPanel
     }
 
 		//congradulate the user if they've won
-		if(model.scrollPos > 3600 && model.mario.myCoins == 25)
+		if(model.scrollPos > 4000 && model.mario.myCoins == 25)
 		{
 			g.setColor(new Color(0, 0, 0));
 	    g.setFont(new Font("TimesRoman", Font.PLAIN, 30));

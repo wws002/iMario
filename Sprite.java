@@ -48,29 +48,6 @@ abstract class Sprite
     return true;
   }
 
-  void leaveBlock(int _x, int _y, int _w, int _h)
-  {
-    if (y + h > _y && prev_y + h <= _y) //collision from the top
-    {
-      vvel = 0;
-      y = _y - h;
-      onTop = true;
-    }
-    if (y < _y + _h && prev_y >= _y + _h) //collision from the bottum
-    {
-      y = _y + _h;
-      vvel = 0.1;
-    }
-    if (x + w > _x && prev_x + w <= _x) //collision from the left
-    {
-      x = _x - w;
-    }
-    if ( x < _x + _w && prev_x >= _x + _w) //collision from the right
-    {
-      x = _x + _w;
-    }
-  }
-
   abstract Sprite clone(Model newModel);
   abstract void update();
   abstract Json marshall();

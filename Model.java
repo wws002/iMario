@@ -2,16 +2,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 enum Action
-{
-  run,
-  jump
-}
+{ run, runLeft, jump }
 
 class Model
 {
   int scrollPos;
   int backgroundPos = -200;
-  int d = 38, k = 7;
+  int d = 30, k = 8;
   Mario mario;
   ArrayList<Sprite> sprites;
 
@@ -52,7 +49,7 @@ class Model
   {
   	// Evaluate the state
   	if(depth >= d)
-  		return 3*mario.x + 5000 * mario.myCoins - mario.jc;
+  		return mario.x + 5000 * mario.myCoins - mario.jc;
 
   	// Simulate the action
   	Model copy = new Model(this); // uses the copy constructor
@@ -65,7 +62,8 @@ class Model
   	else
   	{
   	   double best = copy.evaluateAction(Action.run, depth + 1);
-  	   best = Math.max(best, copy.evaluateAction(Action.jump, depth + 1));
+       best = Math.max(best, copy.evaluateAction(Action.jump, depth + 1));
+  	   best = Math.max(best, copy.evaluateAction(Action.runLeft, depth + 1));
   	   return best;
   	}
   }
@@ -82,6 +80,14 @@ class Model
         backgroundPos--;
 
       mario.runningRight = true;
+    }
+
+    if(a == Action.runLeft)
+    {
+      if(mario.sideCollide == false)
+        backgroundPos++;
+
+      mario.runningLeft = true;
     }
 
     if(a == Action.jump)

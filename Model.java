@@ -49,7 +49,7 @@ class Model
   {
   	// Evaluate the state
   	if(depth >= d)
-  		return mario.x + 5000 * mario.myCoins - 100*mario.jc;
+  		return mario.x + 5000 * mario.myCoins - mario.jc;
 
   	// Simulate the action
   	Model copy = new Model(this); // uses the copy constructor

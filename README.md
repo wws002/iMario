@@ -4,3 +4,7 @@ This is an extension of a java based mario game that uses artificial intelligenc
 
 
 To run: ./build.bash; java Game
+
+to switch off ai:
+open Game.java, comment line 27 and uncomment line 28
+recompile by typing "./build.bash" into terminal

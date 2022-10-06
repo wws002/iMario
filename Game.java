@@ -24,8 +24,8 @@ public class Game extends JFrame
     model.load("sprites.json");
     while(true)
     {
-      controller.aiUpdate();
-      //controller.update();
+      //controller.aiUpdate();
+      controller.update();
       model.update();
       view.repaint(); // Indirectly calls View.paintComponent
       Toolkit.getDefaultToolkit().sync(); // Updates screen

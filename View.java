@@ -11,6 +11,7 @@ class View extends JPanel
 	Model model;
 	Controller controller;
 	Image background = null;
+  Image flag = null;
 
 	View(Controller c, Model m)
 	{
@@ -21,6 +22,7 @@ class View extends JPanel
     try
     {
       background = ImageIO.read(new File("background.png"));
+      flag = ImageIO.read(new File("flag.png"));
     }
     catch(Exception e)
     {
@@ -37,6 +39,9 @@ class View extends JPanel
 
     //draw the background
     g.drawImage(background, model.backgroundPos, -50, 1600, 1200, null);
+
+    //draw the flag
+    g.drawImage(flag, 4450 - model.scrollPos, 630, 200, 200, null);
 
     //draw the ground
     g.setColor(new Color(50, 200, 64));

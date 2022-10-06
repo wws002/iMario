@@ -11,7 +11,7 @@ class Controller implements ActionListener, MouseListener, KeyListener
   Model model;
   boolean keyLeft;
   boolean keyRight;
-  boolean keySpace;
+  boolean keyUp;
   boolean keyC;
   boolean keyD;
   int mouseDownX;
@@ -83,10 +83,10 @@ class Controller implements ActionListener, MouseListener, KeyListener
 		  case KeyEvent.VK_S: model.save("sprites.json"); System.out.println("game saved"); break;
 		  case KeyEvent.VK_C: keyC = true; break;
       case KeyEvent.VK_D: keyD = true; break;
-	    case KeyEvent.VK_SPACE: //only jump if mario is on the ground or a brick
+      case KeyEvent.VK_UP: 
       if(model.mario.onTop == true || model.mario.y == 700)
       {
-        keySpace = true;
+        keyUp = true;
       } break;
 		}
 	}
@@ -97,7 +97,7 @@ class Controller implements ActionListener, MouseListener, KeyListener
 		{
 			case KeyEvent.VK_RIGHT: keyRight = false; break;
 			case KeyEvent.VK_LEFT: keyLeft = false; break;
-			case KeyEvent.VK_SPACE: keySpace = false; break;
+			case KeyEvent.VK_UP: keyUp = false; break;
 			case KeyEvent.VK_C: keyC = false; break;
       case KeyEvent.VK_D: keyD = false; break;
 		}
@@ -125,7 +125,7 @@ class Controller implements ActionListener, MouseListener, KeyListener
       model.mario.runningLeft = true;
     }
 
-		if(keySpace)//make mario jump
+		if(keyUp)//make mario jump
 		{
       if(model.mario.onTop == true || model.mario.y == 700)
       {
